@@ -92,3 +92,63 @@ function ajustarTexto(str, num){
     console.log(ajustarTexto("hola", 2)) // "ho" 
     console.log(ajustarTexto("Hola", 0)) // "" 
     console.log(ajustarTexto("Hola", 5)) // "Hola "
+
+ /*Dada una matriz de numeros enteros nums y un numero entero target, devuelva los indices de los dos numeros que sumen target.
+ Puede suponer que cada entrada tendria exactamente una solucion y no puede usar el mismo elemento dos veces.
+ Puede devolver la respuesta en cualquier orden*/
+ console.log('Ejercicio 5')
+   let nums = [2,7,11,15];
+   let nums2 = [3,2,4];
+   let nums3 = [3,3];
+   let target = 9;
+   let target2 = 6;
+   let target3 = 6;
+
+    function dosSuma (numeros, objetivo){
+      for(let i = 0; i < numeros.length; i ++){
+          for(let j = 0; j < numeros.length; j ++){
+           if(i != j && (numeros[i] + numeros[j] === objetivo)){
+             return [i ,j];
+          }
+        }
+      }
+    }
+    console.log(dosSuma(nums2, target2))
+/*Dada una matriz de enteros nums, mueva todos los 0 al final mientras mantiene el orden relativo de los elementos distintos de cero.*/
+console.log('Ejercicio 6');
+let numeros = [0,1,0,3,12];
+
+function moveZeroes (numeros){
+  let finalCeros = [];
+  let arrSinCeros = [];
+     for (let i = 0; i < numeros.length; i ++ ){
+      if(numeros[i] === 0){
+        finalCeros.push(numeros[i])
+      } else {
+          arrSinCeros.push(numeros[i])
+      }
+     }   
+     return arrSinCeros.concat(finalCeros)
+}
+console.log(moveZeroes(numeros));
+
+/*Dadas dos cadenas s y t, devuelve true si t es un anagrama de s y false si no.*/
+console.log('Ejercicio 7')
+let s = 'anagrama';
+let t = 'nagaram';
+
+function esAnagrama(s,t){
+    s = s.toLowerCase();
+    t = t.toLowerCase();
+    let str1 = s.split('')
+    let str2 = t.split('')
+      for(let j = 0; j < str2.length; j ++){
+        if(str1.includes(str2[j])){
+          continue
+        } else {
+          return false
+        }
+      }
+      return true
+}
+console.log(esAnagrama(s,t))
